@@ -395,7 +395,7 @@ class Laptop extends CI_Controller {
             $writer = new Xlsx($spreadsheet);
             $writer->save($filename);
             $content = file_get_contents($filename);
-        } catch(Exception $e) {
+        } catch(Exception $e) { 
             exit($e->getMessage());
         }
 
