@@ -23,7 +23,7 @@
                 <div class="box-header">
                 <div class="col-md-7">
                 <?php
-                    echo form_open('laptop/edithistory');
+                    echo form_open('laptop/edithistory/'.$record['id_history']);
                 ?>                   
                     <div class="box-body">                        
                         <div class="form-group">                                                
