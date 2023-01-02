@@ -366,9 +366,9 @@ class Laptop extends CI_Controller {
             $sheet->setCellValue('S'.$i, $value->aplikasi_yg_digunakan);   
             $sheet->setCellValue('T'.$i, $value->lokasi_komputer);   
             $sheet->setCellValue('U'.$i, $value->nama_pengguna);  
-            $content = @file_get_contents(site_url('/barcode/'.$value->kode_komputer).'.png');
+            $content = @file_get_contents(site_url('/barcode/'.$value->kode_laptop).'.png');
             if($content !== FALSE) {
-                $sheet->setCellValue('V'.$i, site_url('/barcode/'.$value->kode_komputer).'.png'); 
+                $sheet->setCellValue('V'.$i, site_url('/barcode/'.$value->kode_laptop).'.png'); 
             }else{  
                 $sheet->setCellValue('V'.$i, ""); 
             }
