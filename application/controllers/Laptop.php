@@ -84,7 +84,7 @@ class Laptop extends CI_Controller {
                 'tindaklanjut_ubah_pass' =>$this->input->post('tindaklanjut_ubah_pass'),
                 'tindaklanjut_av' =>$this->input->post('tindaklanjut_av'),
                 'nama_petugas_assesmen' =>$this->input->post('nama_petugas_assesmen'),
-                'aplikasi_yg_digunakan' =>$this->input->post('aplikasi_yg_digunakan'),
+                'aplikasi_yg_digunakan' => implode(', ', $this->input->post('aplikasi_yg_digunakan')),
                 'lokasi_komputer' =>$this->input->post('lokasi_komputer'),
                 'tindaklanjut_media' =>$this->input->post('tindaklanjut_media'),
             );
@@ -276,7 +276,7 @@ class Laptop extends CI_Controller {
                         'tindaklanjut_ubah_pass' =>$this->input->post('tindaklanjut_ubah_pass'),
                         'tindaklanjut_av' =>$this->input->post('tindaklanjut_av'),
                         'nama_petugas_assesmen' =>$this->input->post('nama_petugas_assesmen'),
-                        'aplikasi_yg_digunakan' =>$this->input->post('aplikasi_yg_digunakan'),
+                        'aplikasi_yg_digunakan' => implode(', ', $this->input->post('aplikasi_yg_digunakan')),
                         'lokasi_komputer' =>$this->input->post('lokasi_komputer'),
                         'tindaklanjut_media' =>$this->input->post('tindaklanjut_media'),
 						'note' => $this->input->post('note')
@@ -373,7 +373,6 @@ class Laptop extends CI_Controller {
                 $sheet->setCellValue('V'.$i, ""); 
             }
             $i++; 
-            $i++;
         }
          
         $styleArray = [

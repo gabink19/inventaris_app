@@ -4,6 +4,15 @@
        $(".combobox").combobox();
     });
 </script>
+<style>
+  input.larger {
+    width: 20px;
+    height: 20px;
+  }
+  input:hover {
+    cursor: pointer;
+  }
+</style>
 <section class="content-header">
     <h1>
         Tambah
@@ -27,7 +36,7 @@
                 ?>                   
                     <div class="box-body">                        
                         <div class="form-group">
-                            <label>Pengguna Laptop</label>
+                            <label>Nama pegawai yang di asesmen</label>
                             <select name="pengguna" class="combobox form-control" id="dept">
                             <option value='' selected="selected">- Pilih Pengguna Laptop -</option>
                                 <?php
@@ -39,7 +48,19 @@
                                 ?>
                             </select> 
                             <?php echo form_error('pengguna', '<div class="text-red">', '</div>'); ?>                           
-                        </div>    
+                        </div>   
+                        <div class="form-group">
+                            <label>Tgl. Inventaris</label>
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                              </div>
+                              
+                                 <input type="text" name="tgl_inv" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
+                                   oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >
+                            
+                            </div><!-- /.input group -->
+                        </div> 
                         <div class="form-group">
                             <label for="example">Brand Laptop</label>
                             <input type="text" name="merek" class="form-control" required oninvalid="setCustomValidity('Merek/brand Harus di Isi !')"
@@ -59,18 +80,6 @@
                                    <?php echo form_error('sn', '<div class="text-red">', '</div>'); ?>
                         </div>
                         <div class="form-group">
-                            <label>Tgl. Inventaris</label>
-                            <div class="input-group">
-                              <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                              </div>
-                              
-                                 <input type="text" name="tgl_inv" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
-                                   oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >
-                            
-                            </div><!-- /.input group -->
-                        </div>
-                        <div class="form-group">
                             <label for="example">Harga Beli</label>
                             <input type="number" name="harga" class="form-control" required oninvalid="setCustomValidity('Harga Beli Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Harga Beli Laptop" >
@@ -85,10 +94,15 @@
                               <input name="ip" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask required/>
                             </div><!-- /.input group -->
                             <?php echo form_error('ip', '<div class="text-red">', '</div>'); ?>
-                        </div><!-- /.form group -->   
+                        </div><!-- /.form group -->  
                         <div class="form-group">
-                            <label for="example">Apakah komputer atau laptop milik pribadi ?</label>
-                            <input type="text" name="milik_pribadi" class="form-control" required>
+                            <label for="example">Apakah komputer atau laptop milik pribadi ?</label><br>
+                            <div class="form-group" style="margin-left: 10px;">
+                                <input type="radio" id="html" name="milik_pribadi" value="ya" class="larger">
+                                <label for="html" style="font-weight: 500;">Ya</label><br>
+                                <input type="radio" id="css" name="milik_pribadi" value="tidak" class="larger">
+                                <label for="css" style="font-weight: 500;">Tidak</label><br>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="example">Apakah user login SIMRS menggunakan akun sendiri?</label>
@@ -125,14 +139,17 @@
                         <div class="form-group">
                             <label for="example">Tindaklanjutnya media pertukaran data</label>
                             <textarea type="text" name="tindaklanjut_media" class="form-control" required></textarea>
-                        </div>   
-                        <div class="form-group">
-                            <label for="example">Nama petugas asesmen</label>
-                            <input type="text" name="nama_petugas_assesmen" class="form-control" required>
                         </div>    
                         <div class="form-group">
-                            <label for="example">Aplikasi yang digunakan ?</label>
-                            <input type="text" name="aplikasi_yg_digunakan" class="form-control" required>
+                            <label for="aplikasi_yg_digunakan">Aplikasi yang digunakan ?</label><br>
+                            <div class="form-group" style="margin-left: 10px;">
+                                <input type="checkbox" id="vehicle1" name="aplikasi_yg_digunakan[]" value="EHR/HIS/Sinde" class="larger">
+                                <label for="vehicle1"  style="font-weight: 500;"> EHR/HIS/Sinde</label><br>
+                                <input type="checkbox" id="vehicle2" name="aplikasi_yg_digunakan[]" value="Internet" class="larger">
+                                <label for="vehicle2" style="font-weight: 500;"> Internet</label><br>
+                                <label for="aplikasi"  style="font-weight: 500;"> Other</label>
+                                <input type="text" id="aplikasi" name="aplikasi_yg_digunakan[]" required style="width: 70%;margin-left: 10px;">
+                            </div>
                         </div>  
                         <div class="form-group">
                             <label for="example">Nama petugas asesmen</label>
